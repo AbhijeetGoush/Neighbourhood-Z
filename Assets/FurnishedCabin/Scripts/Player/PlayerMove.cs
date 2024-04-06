@@ -31,8 +31,7 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = 4;
-            print("Sprinting");
+            movementSpeed = sprintSpeed;
         }
         else
         {
