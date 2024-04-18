@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUpGun : MonoBehaviour
 {
+    Inventory playerInventory;
+    public GameObject playerObject;
     public GameObject GunOnPlayer;
     public GameObject PickUpGunText;
 
@@ -12,6 +14,7 @@ public class PickUpGun : MonoBehaviour
     {
         GunOnPlayer.SetActive(false);
         PickUpGunText.SetActive(false);
+        playerInventory = playerObject.GetComponent<Inventory>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -24,7 +27,9 @@ public class PickUpGun : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 Destroy(PickUpGunText);
-                GunOnPlayer.gameObject.SetActive(true);
+                playerInventory.currentObject = playerInventory.gunObject;
+                playerInventory.flashlightObject.SetActive(false);
+                playerInventory.gunObtained = true;
             }
         }
     }

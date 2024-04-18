@@ -8,8 +8,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private string horizontalInputName = "Horizontal";
     [SerializeField] private string verticalInputName = "Vertical";
 
-    [SerializeField] private float movementSpeed = 2f;
-    [SerializeField] private float sprintSpeed = 4f;
+    [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private float sprintSpeed = 6f;
 
     private CharacterController charController;
 
@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            movementSpeed = 2;
+            movementSpeed = 3;
         }
 
         Vector3 forwardMovement = transform.forward * vertInput;
