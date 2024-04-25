@@ -28,6 +28,7 @@ public class PickUpScrewdriver : MonoBehaviour
                 playerInventory.currentObject = playerInventory.screwdriverObject;
                 playerInventory.gunObject.SetActive(false);
                 playerInventory.flashlightObject.SetActive(false);
+                playerInventory.screwObject.SetActive(false);
                 playerInventory.screwdriverObtained = true;
             }
         }

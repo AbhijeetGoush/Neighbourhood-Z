@@ -30,6 +30,7 @@ public class PickUpGun : MonoBehaviour
                 playerInventory.currentObject = playerInventory.gunObject;
                 playerInventory.flashlightObject.SetActive(false);
                 playerInventory.screwdriverObject.SetActive(false);
+                playerInventory.screwObject.SetActive(false);
                 playerInventory.gunObtained = true;
             }
         }
