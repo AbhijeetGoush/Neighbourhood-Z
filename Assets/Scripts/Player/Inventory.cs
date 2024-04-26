@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class Inventory : MonoBehaviour
     public GameObject screwdriverObject;
     public GameObject screwObject;
     public GameObject currentObject;
-
+    public GameObject findToolsText;
+    public GameObject findItemsText;
+    public GameObject fixFuseBoxText;
     public int screwCount;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class Inventory : MonoBehaviour
         flashlightObtained = false;
         gunObtained = false;
         screwObtained = false;
+        findToolsText.SetActive(true);
+        findItemsText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,6 +73,18 @@ public class Inventory : MonoBehaviour
             }
         }
         currentObject.SetActive(true);
+
+        if(flashlightObtained == true && gunObtained == true)
+        {
+            findToolsText.SetActive(false);
+            findItemsText.SetActive(true);
+        }
+
+        if(screwdriverObtained == true && screwCount == 4)
+        {
+            findItemsText.SetActive(false);
+            fixFuseBoxText.SetActive(true);
+        }
     }
 
 }
