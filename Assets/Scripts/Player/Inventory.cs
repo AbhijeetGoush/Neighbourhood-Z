@@ -19,6 +19,9 @@ public class Inventory : MonoBehaviour
     public GameObject findItemsText;
     public GameObject fixFuseBoxText;
     public int screwCount;
+
+    public GameObject fuseBoxObj;
+    FuseBoxScript fuseBoxScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class Inventory : MonoBehaviour
         screwObtained = false;
         findToolsText.SetActive(true);
         findItemsText.SetActive(false);
+
+        fuseBoxScript = fuseBoxObj.GetComponent<FuseBoxScript>();
     }
 
     // Update is called once per frame
@@ -84,6 +89,7 @@ public class Inventory : MonoBehaviour
         {
             findItemsText.SetActive(false);
             fixFuseBoxText.SetActive(true);
+            fuseBoxScript.ableToUnscrew = true;
         }
     }
 
