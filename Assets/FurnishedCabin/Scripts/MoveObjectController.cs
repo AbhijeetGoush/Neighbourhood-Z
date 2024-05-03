@@ -6,7 +6,7 @@ public class MoveObjectController : MonoBehaviour
 	public float reachRange = 1.8f;			
 
 	private Animator anim;
-	private Camera fpsCam;
+	public Camera fpsCam;
 	private GameObject player;
 
 	private const string animBoolName = "isOpen_Obj_";
