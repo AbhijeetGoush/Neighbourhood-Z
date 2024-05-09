@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2271036430416539211}
   - component: {fileID: 2324900556478909654}
   - component: {fileID: 4081423849101672543}
+  - component: {fileID: 4143772810683630250}
   m_Layer: 0
   m_Name: PlayerFPS
   m_TagString: Player
@@ -198,6 +199,29 @@ MonoBehaviour:
   fixFuseBoxText: {fileID: 0}
   screwCount: 0
   fuseBoxObj: {fileID: 0}
+--- !u!136 &4143772810683630250
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271036430416539205}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2271036430514701901
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,14 +462,13 @@ GameObject:
   - component: {fileID: 1954943559546243}
   - component: {fileID: 4940146042888087998}
   - component: {fileID: 6900640816711198228}
-  - component: {fileID: 5330518384798004770}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1954943559546243
 Transform:
   m_ObjectHideFlags: 0
@@ -511,29 +534,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5330518384798004770
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8304210602102178387}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2779823004556741323
 PrefabInstance:
   m_ObjectHideFlags: 0
