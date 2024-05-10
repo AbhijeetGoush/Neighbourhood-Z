@@ -5,10 +5,20 @@ using UnityEngine.AI;
 
 public class WalkState : State
 {
+    public GameObject destination;
+
+    int xPos;
+    int zPos;
+    public int randomLowerX;
+    public int randomHigherX;
+    public int randomLowerZ;
+    public int randomHigherZ;
+
     ZombieAI zombieAI;
+    ZombieHealth zombieHealth;
     public GameObject zombieObj;
 
-    Vector3 destPoint;
+    public Vector3 destPoint;
 
     bool walkPointSet;
     [SerializeField] float walkRange;
@@ -16,6 +26,7 @@ public class WalkState : State
     private void Start()
     {
         zombieAI = zombieObj.GetComponent<ZombieAI>();
+        zombieHealth = zombieObj.GetComponent<ZombieHealth>();
     }
 
     public override void Enter()
@@ -27,8 +38,13 @@ public class WalkState : State
     public override void Do()
     {
         navMesh.speed = 1;
-        
-        if(!walkPointSet)
+
+        if (zombieHealth.health <= 0)
+        {
+            isComplete = true;
+        }
+
+        if (!walkPointSet)
         {
             SearchForDest();
         }

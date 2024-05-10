@@ -81,6 +81,7 @@ Transform:
   - {fileID: 772581055113615012}
   - {fileID: 6978154836364320350}
   - {fileID: 3094974053943731450}
+  - {fileID: 2433166694070628975}
   m_Father: {fileID: 1925357449662072438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104908831701977829
@@ -176,6 +177,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8372822448643910412}
   navMesh: {fileID: 6385505803923905879}
+  zombie: {fileID: 3234543025998034021}
+--- !u!1 &4969376118965539260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2433166694070628975}
+  - component: {fileID: 3248624331193810531}
+  m_Layer: 0
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2433166694070628975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969376118965539260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5121871511237781683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3248624331193810531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969376118965539260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95bf2bd285678d4fa1455c4519cbfbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8372822448643910412}
+  navMesh: {fileID: 6385505803923905879}
+  zombieObj: {fileID: 3234543025998034021}
 --- !u!1 &8307892026219430785
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8372822448643910412}
   navMesh: {fileID: 6385505803923905879}
+  zombie: {fileID: 3234543025998034021}
 --- !u!1001 &6900230036555246956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -302,6 +352,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5979777532666897159}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6946090792770138079}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5877841678767918118}
   m_SourcePrefab: {fileID: 100100000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
 --- !u!4 &1925357449662072438 stripped
 Transform:
@@ -365,6 +421,7 @@ MonoBehaviour:
   walkState: {fileID: 2797815423309003935}
   runState: {fileID: 7168610016279905740}
   attackState: {fileID: 5965087122281580196}
+  deathState: {fileID: 3248624331193810531}
   idle: 0
   walk: 0
   run: 0
@@ -372,6 +429,40 @@ MonoBehaviour:
   navMesh: {fileID: 6385505803923905879}
   anim: {fileID: 8372822448643910412}
   idleTimer: 4
+--- !u!114 &6946090792770138079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234543025998034021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823a6d46c3d38d5429110d68badf2cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!65 &5877841678767918118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234543025998034021}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6890804, y: 1.8034699, z: 0.41926563}
+  m_Center: {x: 0.05467603, y: 0.8915626, z: -0.016857922}
 --- !u!95 &8372822448643910412 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}

@@ -7,10 +7,12 @@ using UnityEngine.AI;
 public class IdleState : State
 {
     ZombieAI zombieAI;
+    ZombieHealth zombieHealth;
     public GameObject zombieObj;
     private void Start()
     {
         zombieAI = zombieObj.GetComponent<ZombieAI>();
+        zombieHealth = zombieObj.GetComponent<ZombieHealth>();
     }
 
     public override void Enter()
@@ -22,6 +24,11 @@ public class IdleState : State
     public override void Do()
     {
         navMesh.speed = 0;
+
+        if(zombieHealth.health <= 0)
+        {
+            isComplete = true;
+        }
 
         if (zombieAI.idleTimer <= 0f)
         {
