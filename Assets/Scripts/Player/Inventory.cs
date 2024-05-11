@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     public GameObject findToolsText;
     public GameObject findItemsText;
     public GameObject fixFuseBoxText;
+    public GameObject ammoText;
     public int screwCount;
 
     public GameObject fuseBoxObj;
@@ -29,6 +30,7 @@ public class Inventory : MonoBehaviour
         screwObtained = false;
         findToolsText.SetActive(true);
         findItemsText.SetActive(false);
+        ammoText.SetActive(false);
 
         fuseBoxScript = fuseBoxObj.GetComponent<FuseBoxScript>();
     }
@@ -44,6 +46,7 @@ public class Inventory : MonoBehaviour
                 gunObject.SetActive(false);
                 screwdriverObject.SetActive(false);
                 screwObject.SetActive(false);
+                ammoText.SetActive(false);
             }
         }
         if (gunObtained == true)
@@ -54,6 +57,7 @@ public class Inventory : MonoBehaviour
                 flashlightObject.SetActive(false);
                 screwdriverObject.SetActive(false);
                 screwObject.SetActive(false);
+                ammoText.SetActive(true);
             }
         }
         if (screwdriverObtained == true)
@@ -64,6 +68,7 @@ public class Inventory : MonoBehaviour
                 gunObject.SetActive(false);
                 flashlightObject.SetActive(false);
                 screwObject.SetActive(false);
+                ammoText.SetActive(false);
             }
         }
         if (screwObtained == true)
@@ -74,6 +79,7 @@ public class Inventory : MonoBehaviour
                 gunObject.SetActive(false);
                 flashlightObject.SetActive(false);
                 screwdriverObject.SetActive(false);
+                ammoText.SetActive(false);
             }
         }
         currentObject.SetActive(true);
@@ -90,6 +96,9 @@ public class Inventory : MonoBehaviour
             fixFuseBoxText.SetActive(true);
             fuseBoxScript.ableToUnscrew = true;
         }
+
+
+        
     }
 
 }
