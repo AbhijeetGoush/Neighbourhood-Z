@@ -48,7 +48,11 @@ public class GunScript : MonoBehaviour
                 Shoot();
                 shootTimer = 0.1f;
             }
+        }
 
+        if(Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo)
+        {
+            StartCoroutine (Reload());
         }
     }
 

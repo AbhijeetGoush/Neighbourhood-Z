@@ -46,7 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8372822448643910412}
   navMesh: {fileID: 6385505803923905879}
+  destination: {fileID: 0}
+  randomLowerX: 0
+  randomHigherX: 0
+  randomLowerZ: 0
+  randomHigherZ: 0
   zombieObj: {fileID: 3234543025998034021}
+  destPoint: {x: 0, y: 0, z: 0}
   walkRange: 20
 --- !u!1 &1705469663808204794
 GameObject:
@@ -429,6 +435,13 @@ MonoBehaviour:
   navMesh: {fileID: 6385505803923905879}
   anim: {fileID: 8372822448643910412}
   idleTimer: 4
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  sightRange: 5
+  attackRange: 1
+  playerInSight: 0
+  playerInAttackRange: 0
 --- !u!114 &6946090792770138079
 MonoBehaviour:
   m_ObjectHideFlags: 0

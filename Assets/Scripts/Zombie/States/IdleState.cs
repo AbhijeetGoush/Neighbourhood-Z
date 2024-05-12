@@ -25,7 +25,12 @@ public class IdleState : State
     {
         navMesh.speed = 0;
 
-        if(zombieHealth.health <= 0)
+        anim.SetBool("Run", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Idle", true);
+
+        if (zombieHealth.health <= 0)
         {
             isComplete = true;
         }
@@ -35,6 +40,11 @@ public class IdleState : State
             walk = true;
             idle = false;
 
+            isComplete = true;
+        }
+
+        if (zombieAI.playerInSight && !zombieAI.playerInAttackRange && zombieHealth.health > 0)
+        {
             isComplete = true;
         }
     }

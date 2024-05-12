@@ -20,7 +20,11 @@ public class DeathState : State
         walk = false;
         idle = false;
         run = false;
-
+        anim.SetBool("Death", true);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Idle", false);
+        anim.SetBool("Run", false);
     }
     public override void Do()
     {
@@ -29,6 +33,7 @@ public class DeathState : State
         anim.SetBool("Attack", false);
         anim.SetBool("Walk", false);
         anim.SetBool("Idle", false);
+        anim.SetBool("Run", false);
 
         Destroy(boxCol);
 

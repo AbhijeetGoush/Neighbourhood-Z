@@ -22,6 +22,9 @@ public class ZombieAI : MonoBehaviour
 
     public float idleTimer = 4f;
 
+    [SerializeField] LayerMask playerLayer;
+    [SerializeField] float sightRange, attackRange;
+    public bool playerInSight, playerInAttackRange;
 
     State state;
     // Start is called before the first frame update
@@ -54,6 +57,9 @@ public class ZombieAI : MonoBehaviour
     {
         state.Do();
 
+        playerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+
         if (zombieHealth.health <= 0)
         {
             state = deathState;
@@ -63,7 +69,7 @@ public class ZombieAI : MonoBehaviour
         {
             SelectState();
         }
-        //print(state);
+        print(state);
         idleTimer -= Time.deltaTime;
         //print(idleTimer);
 
@@ -71,23 +77,26 @@ public class ZombieAI : MonoBehaviour
 
     void SelectState()
     {
-        if (idleTimer > 0 && zombieHealth.health > 0)
+        if(!playerInSight &&  !playerInAttackRange)
         {
-            state = idleState;
+            if (idleTimer > 0 && zombieHealth.health > 0 && state != run)
+            {
+                state = idleState;
+            }
+            if (idleTimer <= 0f && zombieHealth.health > 0 && state != run)
+            {
+                state = walkState;
+            }
         }
-        if (idleTimer <= 0f && zombieHealth.health > 0)
-        {
-            state = walkState;
-        }
-        if (run && zombieHealth.health > 0)
+        if (playerInSight && !playerInAttackRange && zombieHealth.health > 0)
         {
             state = runState;
         }
-        if (attack && zombieHealth.health > 0)
+        if (playerInSight && playerInAttackRange && zombieHealth.health > 0)
         {
             state = attackState;
         }
-        if(zombieHealth.health <= 0)
+        if (zombieHealth.health <= 0)
         {
             state = deathState;
         }
