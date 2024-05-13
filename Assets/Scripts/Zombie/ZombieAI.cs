@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class ZombieAI : MonoBehaviour
 {
     ZombieHealth zombieHealth;
+    PlayerHealth playerHealth;
+    public GameObject playerObj;
     public State idleState;
     public State walkState;
     public State runState;
@@ -50,6 +52,9 @@ public class ZombieAI : MonoBehaviour
         state.anim = anim;
 
         zombieHealth = GetComponent<ZombieHealth>();
+        
+        playerObj = GameObject.FindWithTag("Player");
+        playerHealth = playerObj.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -103,4 +108,8 @@ public class ZombieAI : MonoBehaviour
         state.Enter();
     }
 
+    public void DamagePlayer()
+    {
+        playerHealth.currentHealth -= 10;
+    }
 }

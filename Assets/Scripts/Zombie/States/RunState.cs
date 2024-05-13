@@ -38,11 +38,6 @@ public class RunState : State
             isComplete = true;
         }
 
-        if (zombieHealth.health <= 0)
-        {
-            isComplete = true;
-        }
-
         if (idle == true || walk == true || attack == true)
         {
             isComplete = true;
