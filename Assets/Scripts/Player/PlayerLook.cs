@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
+    public GameObject playerObj;
+    PlayerHealth playerHealth;
+
     [SerializeField] private string mouseXInputName = "Mouse X";
     [SerializeField] private string mouseYInputName = "Mouse Y";
     [SerializeField] private float mouseSensitivity = 150f;
 
     [SerializeField] private Transform playerBody;
     private float xAxisClamp;
-    private bool m_cursorIsLocked = true;
+    public bool m_cursorIsLocked = true;
 
+    private void Start()
+    {
+        playerHealth = playerObj.GetComponent<PlayerHealth>();
+    }
     private void Awake()
     {
         LockCursor();
         xAxisClamp = 0.0f;
     }
 
-    private void LockCursor()
+    public void LockCursor()
     {
        
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             m_cursorIsLocked = false;
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && playerHealth.currentHealth > 0)
         {
             m_cursorIsLocked = true;
         }
@@ -40,7 +47,11 @@ public class PlayerLook : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        
+        /*if (playerHealth.currentHealth <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }*/
     }
 
     private void Update()
