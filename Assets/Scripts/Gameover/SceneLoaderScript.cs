@@ -14,4 +14,9 @@ public class SceneLoaderScript : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }

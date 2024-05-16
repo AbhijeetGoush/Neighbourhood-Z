@@ -31,6 +31,7 @@ public class PickUpFlashlight : MonoBehaviour
                 playerInventory.gunObject.SetActive(false);
                 playerInventory.screwdriverObject.SetActive(false);
                 playerInventory.screwObject.SetActive(false);
+                playerInventory.ammoText.SetActive(false);
                 playerInventory.flashlightObtained = true;
             }
         }

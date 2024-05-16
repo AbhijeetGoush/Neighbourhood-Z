@@ -74,7 +74,7 @@ public class ZombieAI : MonoBehaviour
         {
             SelectState();
         }
-        print(state);
+        //print(state);
         idleTimer -= Time.deltaTime;
         //print(idleTimer);
 
@@ -104,6 +104,10 @@ public class ZombieAI : MonoBehaviour
         if (zombieHealth.health <= 0)
         {
             state = deathState;
+        }
+        if(zombieHealth.health < 100f && zombieHealth.health > 1f)
+        {
+            state = runState;
         }
         state.Enter();
     }

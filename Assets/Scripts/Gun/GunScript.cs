@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using JetBrains.Annotations;
 
 public class GunScript : MonoBehaviour
 {
@@ -21,9 +22,19 @@ public class GunScript : MonoBehaviour
     private bool isReloading = false;
     public Animator anim;
 
+    AudioSource shootingSound;
+    public GameObject shootingSoundObj;
+    public AudioClip shootingClip;
+
+    AudioSource reloadingSound;
+    public GameObject reloadingSoundObj;
+    public AudioClip reloadingClip;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
+        shootingSound = shootingSoundObj.GetComponent<AudioSource>();
+        reloadingSound = reloadingSoundObj.GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -58,6 +69,7 @@ public class GunScript : MonoBehaviour
 
     IEnumerator Reload()
     {
+        reloadingSound.PlayOneShot(reloadingClip);
         isReloading = true;
         Debug.Log("Reloading");
         anim.SetBool("Reloading", true);
@@ -75,6 +87,7 @@ public class GunScript : MonoBehaviour
         currentAmmo--;
 
         muzzleFlash.Play();
+        shootingSound.PlayOneShot(shootingClip);
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
