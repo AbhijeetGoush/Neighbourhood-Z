@@ -36,6 +36,13 @@ public class GunScript : MonoBehaviour
         shootingSound = shootingSoundObj.GetComponent<AudioSource>();
         reloadingSound = reloadingSoundObj.GetComponent<AudioSource>();
     }
+
+    void OnEnable()
+    {
+        isReloading = false;
+        anim.SetBool("Reloading", false);
+    }
+
     // Update is called once per frame
     void Update()
     {

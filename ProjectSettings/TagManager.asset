@@ -6,7 +6,8 @@ TagManager:
   tags:
   - House
   - Terrain
-  - Road
+  - Grass_SFX
+  - Road_SFX
   layers:
   - Default
   - TransparentFX

@@ -7,11 +7,13 @@ public class GroundCheck : MonoBehaviour
     public GameObject houseObj;
     public bool touchingGrass;
     public bool touchingRoad;
+    public bool touchingHouse;
     // Start is called before the first frame update
     void Start()
     {
         touchingGrass = false;
         touchingRoad = false;
+        touchingHouse = true;
     }
 
     // Update is called once per frame
@@ -39,6 +41,16 @@ public class GroundCheck : MonoBehaviour
         if(hit.collider.tag != "Road")
         {
             touchingRoad = false;
+        }
+
+        //Check if player is touching house
+        if(hit.collider.tag == "House")
+        {
+            touchingHouse = true;
+        }
+        if(hit.collider.tag != "House")
+        {
+            touchingHouse = false;
         }
     }
 }
