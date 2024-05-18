@@ -16,8 +16,11 @@ public class FuseBoxScript : MonoBehaviour
     public bool ableToUnscrew;
     bool ableToTurnOnFuseBox;
     Inventory playerInventory;
+    PhoneScript phoneScr;
+    public GameObject phoneObject;
     public GameObject playerObject;
     public GameObject useScrewdriverText;
+    public GameObject houseLights;
     public int fuseBoxScrews = 4;
 
     // Start is called before the first frame update
@@ -33,6 +36,7 @@ public class FuseBoxScript : MonoBehaviour
         playerInventory = playerObject.GetComponent<Inventory>();
         fixFuseBoxTaskText.text = "Fix fuse box:\r\nUnscrew old screws " + completedUnscrews + "/4\r\nScrew on new screws " + completedScrews + "/4\r\nTurn on generator (" + fuseBoxStatus + ")";
         useScrewdriverText.gameObject.SetActive(false);
+        phoneScr = phoneObject.GetComponent<PhoneScript>();
     }
 
     // Update is called once per frame
@@ -79,6 +83,8 @@ public class FuseBoxScript : MonoBehaviour
         if(ableToTurnOnFuseBox == true)
         {
             fuseBoxStatus = "ON";
+            houseLights.SetActive(true);
+            phoneScr.canUsePhone = true;
         }
     }
     private void OnMouseUp()

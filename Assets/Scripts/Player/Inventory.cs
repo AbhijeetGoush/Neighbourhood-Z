@@ -22,6 +22,9 @@ public class Inventory : MonoBehaviour
 
     public GameObject fuseBoxObj;
     FuseBoxScript fuseBoxScript;
+
+    PhoneScript phoneScript;
+    public GameObject phoneObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class Inventory : MonoBehaviour
         ammoText.SetActive(false);
 
         fuseBoxScript = fuseBoxObj.GetComponent<FuseBoxScript>();
+        phoneScript = phoneObj.GetComponent<PhoneScript>();
     }
 
     // Update is called once per frame
@@ -84,20 +88,23 @@ public class Inventory : MonoBehaviour
         }
         currentObject.SetActive(true);
 
-        if(flashlightObtained == true && gunObtained == true)
+        if(flashlightObtained == true && gunObtained == true && phoneScript.canUsePhone == false)
         {
             findToolsText.SetActive(false);
             findItemsText.SetActive(true);
         }
 
-        if(screwdriverObtained == true && screwCount == 4)
+        if(screwdriverObtained == true && screwCount == 4 && phoneScript.canUsePhone == false)
         {
             findItemsText.SetActive(false);
             fixFuseBoxText.SetActive(true);
             fuseBoxScript.ableToUnscrew = true;
         }
 
-
+        if(phoneScript.canUsePhone == true)
+        {
+            fixFuseBoxText.SetActive(false);
+        }
         
     }
 
