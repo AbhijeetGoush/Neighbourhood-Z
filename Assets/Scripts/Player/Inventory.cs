@@ -94,7 +94,7 @@ public class Inventory : MonoBehaviour
             findItemsText.SetActive(true);
         }
 
-        if(screwdriverObtained == true && screwCount == 4 && phoneScript.canUsePhone == false)
+        if(screwdriverObtained == true && screwCount == 4 && phoneScript.canUsePhone == false && phoneScript.phoneUse == 0)
         {
             findItemsText.SetActive(false);
             fixFuseBoxText.SetActive(true);
