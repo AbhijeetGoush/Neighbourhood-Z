@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
+    PhoneScript phoneScr;
+    public GameObject phoneObj;
+
     ZombieHealth zombieHealth;
     PlayerHealth playerHealth;
     public GameObject playerObj;
@@ -55,6 +58,9 @@ public class ZombieAI : MonoBehaviour
         
         playerObj = GameObject.FindWithTag("Player");
         playerHealth = playerObj.GetComponent<PlayerHealth>();
+
+        phoneObj = GameObject.FindWithTag("Phone");
+        phoneScr = phoneObj.GetComponent<PhoneScript>();
     }
 
     // Update is called once per frame
@@ -115,5 +121,10 @@ public class ZombieAI : MonoBehaviour
     public void DamagePlayer()
     {
         playerHealth.currentHealth -= 10;
+    }
+
+    public void FinalChase()
+    {
+        state = runState;
     }
 }

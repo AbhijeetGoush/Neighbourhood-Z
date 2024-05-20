@@ -11,19 +11,26 @@ public class PhoneScript : MonoBehaviour
     public int phoneUse;
     public GameObject phoneTaskObj;
     public GameObject fuseBoxText;
+    public GameObject surviveObj;
     public TextMeshProUGUI phoneTaskText;
     
     public AudioSource helpIsOnTheWaySound;
     public GameObject helpIsOnTheWayObj;
     public AudioClip helpIsOnTheWayClip;
 
+    private float surviveTimer;
+    public GameObject timerObj;
+    public TextMeshProUGUI timerText;
     // Start is called before the first frame update
     void Start()
     {
+        surviveTimer = 120;
         phoneUse = 0;
         canUsePhone = false;
         inRange = false;
         phoneTaskObj.SetActive(false);
+        surviveObj.SetActive(false);
+        timerObj.SetActive(false);
         helpIsOnTheWaySound = helpIsOnTheWayObj.GetComponent<AudioSource>();
     }
 
@@ -35,13 +42,32 @@ public class PhoneScript : MonoBehaviour
             phoneTaskObj.SetActive(true);
             fuseBoxText.SetActive(false);
         }
-        if(canUsePhone == true && inRange == true)
+        if(canUsePhone == true && inRange == true && phoneUse == 0)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
                 helpIsOnTheWaySound.PlayOneShot(helpIsOnTheWayClip);
                 phoneUse = 1;
             }
+        }
+        if(phoneUse == 1)
+        {
+            phoneTaskObj.SetActive(false);
+            surviveObj.SetActive(true);
+
+            timerObj.SetActive(true);
+            surviveTimer -= Time.deltaTime;
+            int minutes = Mathf.FloorToInt(surviveTimer / 60);
+            int seconds = Mathf.FloorToInt(surviveTimer % 60);
+            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+
+
+        }
+
+        if(surviveTimer < 0)
+        {
+            surviveTimer = 0;
+            timerText.text = "00:00";
         }
     }
 
