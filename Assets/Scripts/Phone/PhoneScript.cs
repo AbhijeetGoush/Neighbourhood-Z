@@ -18,9 +18,16 @@ public class PhoneScript : MonoBehaviour
     public GameObject helpIsOnTheWayObj;
     public AudioClip helpIsOnTheWayClip;
 
-    private float surviveTimer;
+    public float surviveTimer;
     public GameObject timerObj;
     public TextMeshProUGUI timerText;
+
+    ZombieSpawner zombieSpawner1Scr;
+    ZombieSpawner zombieSpawner2Scr;
+    ZombieSpawner zombieSpawner3Scr;
+    public GameObject zombieSpawner1;
+    public GameObject zombieSpawner2;
+    public GameObject zombieSpawner3;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +39,10 @@ public class PhoneScript : MonoBehaviour
         surviveObj.SetActive(false);
         timerObj.SetActive(false);
         helpIsOnTheWaySound = helpIsOnTheWayObj.GetComponent<AudioSource>();
+
+        zombieSpawner1Scr = zombieSpawner1.GetComponent<ZombieSpawner>();
+        zombieSpawner2Scr = zombieSpawner2.GetComponent<ZombieSpawner>();
+        zombieSpawner3Scr = zombieSpawner3.GetComponent<ZombieSpawner>();
     }
 
     // Update is called once per frame
@@ -68,6 +79,19 @@ public class PhoneScript : MonoBehaviour
         {
             surviveTimer = 0;
             timerText.text = "00:00";
+        }
+
+        if(phoneUse > 0 && surviveTimer > 60)
+        {
+            zombieSpawner1Scr.spawnTimer = 15;
+            zombieSpawner2Scr.spawnTimer = 15;
+            zombieSpawner3Scr.spawnTimer = 15;
+        }
+        if(surviveTimer <= 60f)
+        {
+            zombieSpawner1Scr.spawnTimer = 10;
+            zombieSpawner2Scr.spawnTimer = 10;
+            zombieSpawner3Scr.spawnTimer = 10;
         }
     }
 

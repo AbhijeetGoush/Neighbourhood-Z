@@ -115,6 +115,15 @@ public class ZombieAI : MonoBehaviour
         {
             state = runState;
         }
+        if(!playerInSight && !playerInAttackRange && phoneScr.phoneUse > 0)
+        {
+            state = runState;
+        }
+        if (playerInSight && playerInAttackRange && phoneScr.phoneUse > 0)
+        {
+            state = attackState;
+        }
+
         state.Enter();
     }
 

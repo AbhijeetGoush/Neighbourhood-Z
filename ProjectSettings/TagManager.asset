@@ -8,6 +8,8 @@ TagManager:
   - Terrain
   - Grass_SFX
   - Road_SFX
+  - Road
+  - Phone
   layers:
   - Default
   - TransparentFX

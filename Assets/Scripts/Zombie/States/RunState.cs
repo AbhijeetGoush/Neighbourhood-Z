@@ -8,6 +8,9 @@ public class RunState : State
     public GameObject zombie;
     GameObject playerObj;
 
+    GameObject phoneObj;
+    PhoneScript phoneScript;
+
     ZombieHealth zombieHealth;
     ZombieAI zombieAI;
     private void Start()
@@ -15,6 +18,9 @@ public class RunState : State
         zombieHealth = zombie.GetComponent<ZombieHealth>();
         zombieAI = zombie.GetComponent<ZombieAI>();
         playerObj = GameObject.Find("PlayerFPS");
+
+        phoneObj = GameObject.FindWithTag("Phone");
+        phoneScript = phoneObj.GetComponent<PhoneScript>();
     }
     public override void Enter()
     {
@@ -51,7 +57,10 @@ public class RunState : State
         {
             isComplete = true;
         }
-        
+        if(!zombieAI.playerInSight && !zombieAI.playerInAttackRange && phoneScript.phoneUse > 0)
+        {
+            isComplete = true;
+        }
     }
 
     void Chase()
