@@ -45,4 +45,9 @@ public class SceneLoaderScript : MonoBehaviour
         settingsCanvas.SetActive(false);
         storyCanvas.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
