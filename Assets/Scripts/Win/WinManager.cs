@@ -9,6 +9,8 @@ public class WinManager : MonoBehaviour
     PhoneScript phoneScript;
 
     PlayerLook playerLook;
+    public GameObject helicopter;
+    Animator helicopterAnim;
 
     public GameObject uiCanvas;
     public GameObject tasksCanvas;
@@ -21,8 +23,10 @@ public class WinManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        helicopter.SetActive(false);
         phoneScript = phoneObj.GetComponent<PhoneScript>();
         playerLook = playerCamera.GetComponent<PlayerLook>();
+        helicopterAnim = helicopter.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,19 +34,23 @@ public class WinManager : MonoBehaviour
     {
         if(phoneScript.surviveTimer <= 0)
         {
-            playerLook.m_cursorIsLocked = false;
             playerLook.LockCursor();
+            helicopter.SetActive(true);
+            helicopterAnim.SetBool("Win", true);
+            winCamera.SetActive(true);
+
             playerObj.SetActive(false);
             uiCanvas.SetActive(false);
             tasksCanvas.SetActive(false);
             zombieSpawners.SetActive(false);
             audioManager.SetActive(false);
-            winCamera.SetActive(true);
+            RenderSettings.fog = false;
         }
     }
 
     public void WinCanvas()
     {
         winCanvas.SetActive(true);
+        playerLook.m_cursorIsLocked = false;
     }
 }
