@@ -16,6 +16,7 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameoverCanvas;
     public GameObject zombieSpawners;
     public GameObject audioManager;
+    public GameObject phoneObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class GameOverScript : MonoBehaviour
             tasksCanvas.SetActive(false);
             zombieSpawners.SetActive(false);
             audioManager.SetActive(false);
+            phoneObject.SetActive(false);
             gameoverCamera.SetActive(true);
             gameoverCanvas.SetActive(true);
         }

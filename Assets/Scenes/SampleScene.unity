@@ -5486,6 +5486,7 @@ MonoBehaviour:
   gameoverCanvas: {fileID: 1237928951}
   zombieSpawners: {fileID: 438844278}
   audioManager: {fileID: 1689890463}
+  phoneObject: {fileID: 1690683409}
 --- !u!4 &895338013
 Transform:
   m_ObjectHideFlags: 0
@@ -8483,8 +8484,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5455086, y: 2.7324963, z: 9.67761}
-  m_Center: {x: -0.000000026240487, y: 0.49725735, z: 4.5660524}
+  m_Size: {x: 0.5455086, y: 5.086684, z: 20.563583}
+  m_Center: {x: 0.00000004391973, y: 1.6743507, z: -0.8769344}
 --- !u!1 &1689890463
 GameObject:
   m_ObjectHideFlags: 0
