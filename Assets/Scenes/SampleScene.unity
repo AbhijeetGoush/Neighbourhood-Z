@@ -5586,6 +5586,7 @@ MonoBehaviour:
   menuCanvas: {fileID: 0}
   settingsCanvas: {fileID: 0}
   storyCanvas: {fileID: 0}
+  ControlsCanvas: {fileID: 0}
 --- !u!1 &986720792
 GameObject:
   m_ObjectHideFlags: 0
