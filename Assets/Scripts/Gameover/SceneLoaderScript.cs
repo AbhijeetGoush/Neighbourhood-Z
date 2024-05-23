@@ -8,6 +8,7 @@ public class SceneLoaderScript : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject settingsCanvas;
     public GameObject storyCanvas;
+    public GameObject ControlsCanvas;
 
     public void PlayAgain()
     {
@@ -29,6 +30,7 @@ public class SceneLoaderScript : MonoBehaviour
         menuCanvas.SetActive(false);
         storyCanvas.SetActive(false);
         settingsCanvas.SetActive(true);
+        ControlsCanvas.SetActive(false);
     }
 
     public void StoryMenu()
@@ -36,7 +38,15 @@ public class SceneLoaderScript : MonoBehaviour
         menuCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
         storyCanvas.SetActive(true);
+        ControlsCanvas.SetActive(false);
+    }
 
+    public void ControlsMenu()
+    {
+        menuCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
+        storyCanvas.SetActive(false);
+        ControlsCanvas.SetActive(true);
     }
 
     public void Back()
@@ -44,6 +54,7 @@ public class SceneLoaderScript : MonoBehaviour
         menuCanvas.SetActive(true);
         settingsCanvas.SetActive(false);
         storyCanvas.SetActive(false);
+        ControlsCanvas.SetActive(false);
     }
 
     public void QuitGame()
